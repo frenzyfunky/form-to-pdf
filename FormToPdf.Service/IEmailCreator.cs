@@ -7,6 +7,6 @@ namespace FormToPdf.Service
 {
     public interface IEmailCreator
     {
-        string CreateFromTemplate(string pathToTemplate, JObject variables);
+        string CreateFromTemplate(string emailTemplate, JObject variables);
     }
 }

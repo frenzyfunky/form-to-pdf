@@ -17,7 +17,7 @@ namespace FormToPdf.Service
             _configuration = configuration;
         }
 
-        public void Send(string body, Stream attachment, string fileName, params string[] to)
+        public void Send(string body, Stream attachment, string attachmentName, string subject, params string[] to)
         {
             try
             {
@@ -37,13 +37,13 @@ namespace FormToPdf.Service
                         IsBodyHtml = true,
                         Body = body,
                         From = new MailAddress(_configuration.GetSection("Email:From").Value),
-                        Subject = _configuration.GetSection("Email:Subject").Value,
+                        Subject = subject,
                     };
 
                     attachment.Position = 0;
 
                     var attachmentObj = new Attachment(attachment, new System.Net.Mime.ContentType(System.Net.Mime.MediaTypeNames.Application.Pdf));
-                    attachmentObj.ContentDisposition.FileName = fileName;
+                    attachmentObj.ContentDisposition.FileName = attachmentName;
                     mailMessage.Attachments.Add(attachmentObj);
 
                     foreach (var item in to)

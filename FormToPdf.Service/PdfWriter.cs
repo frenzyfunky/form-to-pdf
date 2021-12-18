@@ -12,13 +12,11 @@ namespace FormToPdf.Service
 {
     public class PdfWriter : IPdfWriter
     {
-        string CERTIFICATE_PATH = $"{Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(PdfWriter)).Location), "certificate.pdf")}";
-
         private PdfDocument document = null;
 
-        public void WriteToPdf(string text, PdfWriterOptions options)
+        public void WriteToPdf(string text, string path, PdfWriterOptions options)
         {
-            LoadPdf();
+            LoadPdf(path);
 
             PdfPage page = document.Pages[0];
             XGraphics graph = XGraphics.FromPdfPage(page);
@@ -42,11 +40,11 @@ namespace FormToPdf.Service
             return stream;
         }
 
-        private void LoadPdf()
+        private void LoadPdf(string path)
         {
             if (document is null)
             {
-                document = PdfReader.Open(CERTIFICATE_PATH, PdfDocumentOpenMode.Modify);
+                document = PdfReader.Open(path, PdfDocumentOpenMode.Modify);
             }
         }
     }

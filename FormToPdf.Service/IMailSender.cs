@@ -8,6 +8,6 @@ namespace FormToPdf.Service
 {
     public interface IMailSender
     {
-        void Send(string body, Stream attachment, string filename, params string[] to);
+        void Send(string body, Stream attachment, string attachmentName, string subject, params string[] to);
     }
 }

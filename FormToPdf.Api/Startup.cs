@@ -1,17 +1,12 @@
+using FormToPdf.Application.UseCases;
+using FormToPdf.Infrastructure;
 using FormToPdf.Service;
-using FormToPdf.Strategies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FormToPdf
 {
@@ -27,7 +22,12 @@ namespace FormToPdf
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IWriteStrategy, WriteNameAddressStrategy>();
+            services.AddDbContext<ApplicationContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            services.AddScoped<IUseCase<bool>, SendPdfAsMail>();
             services.AddScoped<IPdfWriter, PdfWriter>();
             services.AddSingleton<IEmailCreator, EmailCreator>();
             services.AddSingleton<IMailSender, GMailSender>();

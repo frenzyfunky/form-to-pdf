@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>FormToPdf.Api</AssemblyName>
+    <UserSecretsId>f7ada41b-9175-4634-9027-8323628cac2e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FormToPdf.Application\FormToPdf.Application.csproj" />
+    <ProjectReference Include="..\FormToPdf.Infrastructure\FormToPdf.Infrastructure.csproj" />
+    <ProjectReference Include="..\FormToPdf.Service\FormToPdf.Service.csproj" />
+  </ItemGroup>
+
+
+</Project>
