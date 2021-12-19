@@ -78,7 +78,7 @@ namespace FormToPdf.Application.UseCases
 
             try
             {
-                _mailSender.Send(body, stream, $"{Guid.NewGuid()}.pdf", pdf.Email.Subject, "changethis@gmail.com");
+                _mailSender.Send(body, stream, $"{Guid.NewGuid()}.pdf", pdf.Email.Subject, _configuration.GetValue<string>("Email:To"));
             }
             catch (Exception ex)
             {

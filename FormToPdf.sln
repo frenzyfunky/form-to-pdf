@@ -12,9 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoogleScript", "GoogleScrip
 		script.gs = script.gs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormToPdf.Infrastructure", "FormToPdf.Infrastructure\FormToPdf.Infrastructure.csproj", "{398CC172-5997-4011-8871-49FDE805228B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormToPdf.Infrastructure", "FormToPdf.Infrastructure\FormToPdf.Infrastructure.csproj", "{398CC172-5997-4011-8871-49FDE805228B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormToPdf.Application", "FormToPdf.Application\FormToPdf.Application.csproj", "{BCF502F4-B527-4F98-BF72-D18BB64B27A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormToPdf.Application", "FormToPdf.Application\FormToPdf.Application.csproj", "{BCF502F4-B527-4F98-BF72-D18BB64B27A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormToPdf.Admin", "FormToPdf.Admin\FormToPdf.Admin.csproj", "{1B54E28F-D381-4C66-8150-AA184096561C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{BCF502F4-B527-4F98-BF72-D18BB64B27A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF502F4-B527-4F98-BF72-D18BB64B27A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF502F4-B527-4F98-BF72-D18BB64B27A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B54E28F-D381-4C66-8150-AA184096561C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B54E28F-D381-4C66-8150-AA184096561C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B54E28F-D381-4C66-8150-AA184096561C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B54E28F-D381-4C66-8150-AA184096561C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    int i = 0;
+}
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div class="text-center mt-5">
+        <h1 class="display-4">Please sign in to continue</h1>
+    </div>
+}
+else
+{
+    <section id="pdf-list" class="container mx-auto">
+        <div class="row mt-5">
+            @foreach (var item in Model.Pdfs)
+            {
+                if (i != 0 && i % 6 == 0)
+                {
+                    @:</div>
+                    @:<div class="row mt-5">
+                }
+
+                <a class="col-md-2 cursor-pointer" asp-controller="Pdf" asp-action="Detail" asp-route-id="@item.Id">
+                    <div class="img-thumbnail p-2 position-relative">
+                        <img class="img-fluid" src="data:image/jpg;base64, @item.Preview" alt="@item.Name" />
+                        <div class="thumbnail-caption p-2">
+                            <small class="text-white d-block">@item.Name</small>
+                        </div>
+                    </div>
+                </a>
+
+                i++;
+            }
+        </div>
+    </section>
+}
+
